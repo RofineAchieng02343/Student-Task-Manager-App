@@ -9,7 +9,10 @@ function TodoItem({ task, toggleComplete }) {
         borderBottom: "1px solid #ccc"
       }}
     >
-      {task.text}
+          <span style={{ fontSize: "20px" }}>
+        {task.completed ? "✅" : "⭕"}
+      </span>
+      <span>{task.text}</span>
     </li>
   );
 }
