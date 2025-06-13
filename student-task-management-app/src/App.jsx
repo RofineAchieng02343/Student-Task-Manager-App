@@ -1,12 +1,13 @@
+// App.jsx
 import { useState } from "react";
 import TodoInput from "./components/TodoInput";
-import TodoList from "./components/TodoList";
+import TodoList from "./components/grgrgr"; // ✅ Correct casing
 
 function App() {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all");
 
-  // Add a new task
+  // ✅ Add a new task
   const addTask = (text) => {
     const newTask = {
       id: Date.now(),
@@ -16,7 +17,7 @@ function App() {
     setTasks([newTask, ...tasks]);
   };
 
-  // Toggle task complete/incomplete
+  // ✅ Toggle task complete/incomplete
   const toggleComplete = (id) => {
     const updatedTasks = tasks.map((task) =>
       task.id === id ? { ...task, completed: !task.completed } : task
@@ -24,13 +25,13 @@ function App() {
     setTasks(updatedTasks);
   };
 
-  // Clear completed tasks
+  // ✅ Clear completed tasks
   const clearCompleted = () => {
     const activeTasks = tasks.filter((task) => !task.completed);
     setTasks(activeTasks);
   };
 
-  // Filter tasks based on selected tab
+  // ✅ Filter tasks based on selected tab
   const filteredTasks =
     filter === "all"
       ? tasks
@@ -49,18 +50,18 @@ function App() {
       }}
     >
       <div style={{ maxWidth: "500px", margin: "0 auto", color: "white" }}>
-        {/* Title */}
+        {/* ✅ Title */}
         <h1 style={{ textAlign: "center", marginBottom: "1.5rem" }}>
           Student Task Manager
         </h1>
 
-        {/* Input Field */}
+        {/* ✅ Input Field */}
         <TodoInput addTask={addTask} />
 
-        {/* Task List */}
+        {/* ✅ Task List */}
         <TodoList tasks={filteredTasks} toggleComplete={toggleComplete} />
 
-        {/* Tabs at the Bottom */}
+        {/* ✅ Tabs */}
         <div
           style={{
             display: "flex",
@@ -78,7 +79,7 @@ function App() {
               backgroundColor: "transparent",
               border: "1px solid #6b7280",
               borderRadius: "8px",
-              color: "pink", // pink text
+              color: "pink",
               fontWeight: "bold",
               cursor: "pointer",
             }}
@@ -124,9 +125,9 @@ function App() {
             style={{
               padding: "0.5rem 1.2rem",
               backgroundColor: "transparent",
-              border: "1px solid #ef4444", // red border
+              border: "1px solid #ef4444",
               borderRadius: "8px",
-              color: "#ef4444", // red text
+              color: "#ef4444",
               fontWeight: "bold",
               cursor: "pointer",
             }}
